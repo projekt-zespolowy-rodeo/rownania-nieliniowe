@@ -16,15 +16,21 @@
     
     <div class="card mt-5  w-50 mx-auto">
         <div class="card-header h4">
-            <div class="d-inline">-x^3 + 6x^2 + 5x -1 = 0</div>
-            
-            <div class="d-inline float-right">
-              <button class="btn btn-outline-dark my-2 my-sm-0" type="">Oblicz</button>
+            <div>Wielomian: -x^3 + 6x^2 + 5x -1 = 0</div>
+            <br>
+            <div class="inline-block">
+              <form class="form-inline">
+                <div class="form-group">
+                  <label for="accuracy">Podaj dokładność rozwiązania &#949;&#8712;(0,1)</label>
+                  <input type="text" id="accuracy" class="form-control mx-sm-3">
+                  <button class="btn btn-outline-dark my-2 my-sm-0" type="">Oblicz</button>
+                </div>
+              </form>              
             </div>
           </div>
          
         <div class="card-body p-5">
-            <p class="text-center align-middle"> Naciśnij przycisk aby uzyskać rozwiązywanie</p>
+            <p class="text-center align-middle"> Naciśnij przycisk aby uzyskać przybliżone rozwiązywanie</p>
         </div>
       </div>
       <script src="script.js"></script>
