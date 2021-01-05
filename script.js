@@ -1,28 +1,37 @@
 
 let calculateButton = document.getElementById("calculate");
 
-function newtonsMethod(func, derivative, x0, epsilon){
+function newtonsMethod(func, derivative, epsilon){
     let solution = document.getElementById("solution");
-    let xn = x0;
+    // let xn = x0;
     let iterations = 0;
-    while(true){
-        let f = func(xn);
-        let df = derivative(xn);
-        if(df == 0){
-            console.log("Zerowa pochodna, nie znaleziono rozwiązania.");
-            break;
-
-        }  
-        if (Math.abs(f) < epsilon){
-            solution.innerHTML = "Znaleziono rozwiązanie po: "+iterations+" krokach, przybliżone rozwiązanie to: "+xn;
-            return xn;
+    let przedzial = -5;
+    let counter = 20;
+    for(let i=-47; i<=przedzial; i++){
+        counter = 20;
+        let xn = i;
+        while(counter>0){
+            let f = func(xn);
+            let df = derivative(xn);
+            if(df == 0){
+                console.log("Zerowa pochodna, nie znaleziono rozwiązania.");
+                break;
+    
+            }  
+            if (Math.abs(f) <= epsilon){
+                console.log("x0= "+i+" xn= "+xn);
+                solution.innerHTML = "Znaleziono rozwiązanie po: "+iterations+" krokach, przybliżone rozwiązanie to: "+xn;
+                break;
+            }
+             
+            iterations+=1;
+          
+            xn = xn - f/df;
+            counter--;
         }
-         
-        iterations+=1;
-      
-        xn = xn - f/df;
-
+        console.log("wykonano")
     }
+   
 }
 
 function func(x){
@@ -41,7 +50,7 @@ calculateButton.addEventListener("click", function(e){
         solution.innerHTML = "Podaj właściwą dokładność"
     }
     else{
-        newtonsMethod(func, derivative, 1, accuracy); 
+        newtonsMethod(func, derivative, accuracy); 
       
     }
     
